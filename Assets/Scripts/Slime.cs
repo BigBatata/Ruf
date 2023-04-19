@@ -59,12 +59,15 @@ public class Slime : MonoBehaviour
     // called when the cube hits the floor
     void OnCollisionEnter2D(Collision2D col)
     {
-        //Debug.Log(col.transform.tag);
+        //Debug.Log(col.gameObject.CompareTag("Ground"));
         onGround = true;
     }
 
     void OnCollisionStay2D(Collision2D col){
-        onGround = true;
+        if (col.gameObject.CompareTag("Ground")){
+            onGround = true;
+        }
+        
     }
 
     void OnCollisionExit2D(Collision2D col){
